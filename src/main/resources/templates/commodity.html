@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>产品列表</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" th:href="@{/webjars/layui/2.4.5/css/layui.css}">
+    <style>
+        * {
+            /* border: 1px solid red;*/
+        }
+
+        #list {
+            width: 1000px;
+            position: absolute;
+            right: 0px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+
+        }
+
+        .item {
+            width: 282px;
+            height: 368px;
+            margin: 5px 22.5px 40px 22.5px;
+            float: left;
+            position: relative;
+            border: 1px solid black;
+            /*background-color: cadetblue;*/
+        }
+
+        .imgall {
+            width: 260px;
+            height: 260px;
+            margin: 10px;
+        }
+
+        .text {
+            width: 280px;
+            height: 68px;
+            position: absolute;
+            bottom: 0px;
+            left: 30px;
+
+        }
+
+        .title {
+            font-family: "楷体";
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 15px;
+            color: red;
+        }
+
+        button {
+            position: absolute;
+            bottom: 20px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+<div id="list">
+
+    <div class="item" th:each="produc:${productlist}">
+        <div class="img">
+            <a href="#"><img src="../img/hot4.png" th:src="${produc.pimage}" class="imgall"></a>
+        </div>
+        <div class="text">
+            <p class="title" th:text="${produc.pname}">森系小清新四件套</p>
+            <p class="price">
+                <span class="pri" th:text="'￥'+${produc.price}">￥200</span>
+            </p>
+            <a href="/"><button type="button" class=" layui-btn layui-btn-sm  layui-bg-red">加入购物车</button></a>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="../layui/layui.js" th:src="@{/webjars/layui/2.4.5/layui.all.js}"></script>
+<script>
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer
+
+    });
+</script>
+</body>
+</html>
