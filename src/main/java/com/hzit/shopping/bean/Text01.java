@@ -40,10 +40,12 @@ class NumberRunnable implements Runnable {
     @Override
     public void run() {
         synchronized (lock) {
+
             for (int i = 0; i < 52; i += 2) {
                 System.out.print((i + 1) + "" + (i + 2));
                 lock.notifyAll();// 唤醒字母
                 try {
+                    Thread.sleep(1000);
                     lock.wait();
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
@@ -71,6 +73,7 @@ class CharRunnable implements Runnable {
                 System.out.print(ch);
                 lock.notifyAll();// 唤醒数字
                 try {
+                    Thread.sleep(1000);
                     lock.wait();
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
