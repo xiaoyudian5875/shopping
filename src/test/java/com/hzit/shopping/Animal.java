@@ -1,4 +1,4 @@
-package com.hzit.shopping.bean;
+package com.hzit.shopping;
 
 /**
  * 定于一个父类

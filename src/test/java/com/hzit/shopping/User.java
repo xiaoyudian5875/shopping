@@ -1,4 +1,4 @@
-package com.hzit.shopping.bean;
+package com.hzit.shopping;
 
 public class User {
     private  String  name ;
